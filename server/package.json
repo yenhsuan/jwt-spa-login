@@ -1,0 +1,11 @@
+{
+  "name": "jwt-login-server",
+  "version": "1.0.0",
+  "description": "Node server for login-system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Terry Chen",
+  "license": "ISC"
+}
