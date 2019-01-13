@@ -42,19 +42,18 @@ const config = {
         test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader',
+          { loader: 'css-loader', options: { importLoaders: 2 } },
           {
             loader: 'postcss-loader',
             options: {
               ident: 'postcss',
-              plugins: () => [
-                require("stylelint")({ configFile: path.join(__dirname, './.scss-lint.yml') }),
+              plugins: loader => [
                 require('postcss-preset-env')(),
-                require("postcss-reporter")({ clearReportedMessages: true }),
+                require('postcss-reporter')({ clearReportedMessages: true }),
               ]
             }
           },
-          "sass-loader",
+          'sass-loader',
         ]
       },
       {
