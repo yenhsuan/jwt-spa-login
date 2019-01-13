@@ -22,7 +22,7 @@ const config = merge.smartStrategy({ plugins: 'append' })(baseConfig, {
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
-    new FriendlyErrorsWebpackPlugin(),
+    new FriendlyErrorsWebpackPlugin({ clearConsole: false }),
   ],
 });
 
