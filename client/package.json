@@ -4,17 +4,25 @@
   "description": "a react client for login system",
   "main": "index.js",
   "scripts": {
+    "start": "NODE_ENV=development webpack-dev-server --config ./webpack.dev.config.js --mode development --hot",
+    "build:dev": "npm run clean && NODE_ENV=development webpack --config ./webpack.dev.config.js --mode development --watch",
+    "build:prod": "npm run clean && NODE_ENV=production webpack --config ./webpack.prod.config.js --mode production",
+    "clean": "rm -rf dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Terry Chen",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
     "acorn": "^6.0.5",
+    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "css-loader": "^2.1.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.0",
+    "eslint-loader": "^2.1.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-react": "^7.12.3",
@@ -23,13 +31,25 @@
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.5.0",
+    "postcss-reporter": "^6.0.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "stylelint": "^9.9.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "undefined": "^0.1.0",
     "webpack": "^4.28.1",
     "webpack-cli": "^3.2.1",
     "webpack-dev-server": "^3.1.14",
     "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-helmet": "^5.2.0",
+    "react-hot-loader": "^4.6.3",
+    "react-router-dom": "^4.3.1",
+    "react-router-prop-types": "^1.0.4"
   }
 }
