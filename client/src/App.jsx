@@ -1,5 +1,6 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
+import { hot } from 'react-hot-loader/root';
+import TestPage from './components/views/TestPage';
 import './sass/main.scss';
 
 const App = () => (
@@ -8,7 +9,8 @@ const App = () => (
     <div className="app-root__text">
       dfsdsdfsdfsd
     </div>
+    <TestPage />
   </div>
 );
 
-export default hot(module)(App);
+export default hot(App);
