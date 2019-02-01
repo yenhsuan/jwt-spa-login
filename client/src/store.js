@@ -1,19 +1,28 @@
 import { createStore, applyMiddleware } from 'redux';
+import { createBrowserHistory } from 'history';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
-import rootReducer from './reducers/index';
 
-const configureStore = () => {
+import { routerMiddleware } from 'connected-react-router';
+import createRootReducer from './reducers/index';
+
+export const history = createBrowserHistory();
+
+const configureStore = (preloadedState) => {
   const store = createStore(
-    rootReducer,
+    createRootReducer(history),
+    preloadedState,
     composeWithDevTools(
-      applyMiddleware(thunk),
+      applyMiddleware(
+        routerMiddleware(history),
+        thunk,
+      ),
     ),
   );
 
   if (module.hot) {
     module.hot.accept('./reducers/index', () => {
-      const nextRootReducer = rootReducer;
+      const nextRootReducer = createRootReducer(history);
       store.replaceReducer(nextRootReducer);
     });
   }
