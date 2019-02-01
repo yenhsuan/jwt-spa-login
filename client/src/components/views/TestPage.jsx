@@ -2,8 +2,7 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { testAction } from '../../actions/TestAction';
-
+import { testAction, getDog } from '../../actions/TestAction';
 
 class TestPage extends PureComponent {
   constructor(props) {
@@ -16,12 +15,13 @@ class TestPage extends PureComponent {
   }
 
   clickHandler() {
-    const { test, testData } = this.props;
+    const { test, testData, dog } = this.props;
     test(testData);
+    dog();
   }
 
   render() {
-    const { testData } = this.props;
+    const { testData, url } = this.props;
     return (
       <div>
         {testData}
@@ -29,8 +29,9 @@ class TestPage extends PureComponent {
           type="button"
           onClick={this.clickHandler}
         >
-          clickMe;
+          clickMe
         </button>
+        {url}
       </div>
     );
   }
@@ -38,15 +39,19 @@ class TestPage extends PureComponent {
 
 TestPage.propTypes = {
   testData: PropTypes.number.isRequired,
+  url: PropTypes.string.isRequired,
   test: PropTypes.func.isRequired,
+  dog: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   testData: state.dataModel.test.payload,
+  url: state.dataModel.test.dogUrl,
 });
 
 const mapDispatchToProps = dispatch => ({
   test: bindActionCreators(testAction, dispatch),
+  dog: bindActionCreators(getDog, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(TestPage);
