@@ -15,8 +15,11 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
+    "@babel/plugin-transform-regenerator": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.3.1",
     "acorn": "^6.0.5",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
@@ -47,11 +50,19 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "connected-react-router": "^6.2.2",
+    "history": "^4.7.2",
+    "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-hot-loader": "^4.6.3",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
-    "react-router-prop-types": "^1.0.4"
+    "react-router-prop-types": "^1.0.4",
+    "redux": "^4.0.1",
+    "redux-devtools-extension": "^2.13.7",
+    "redux-thunk": "^2.3.0"
   }
 }
